@@ -17,7 +17,7 @@ public class SignalProcessor {
         return result;
     }
 
-    public static double[] squareWave(double frequency, double duration, double samplingRate) {
+    public static double[] squareWave(double frequency, double duration, double samplingRate){
         double[] t = lenspace(0, duration, (int) (samplingRate * duration));
         double[] signal = new double[t.length];
         for (int i = 0; i < t.length; i++) {

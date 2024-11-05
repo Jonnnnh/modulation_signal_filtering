@@ -31,9 +31,9 @@ public class SignalManager {
         this.amSpectrum = SignalProcessor.fft(amSignal, (int) samplingRate);
         this.fmSpectrum = SignalProcessor.fft(fmSignal, (int) samplingRate);
         this.pmSpectrum = SignalProcessor.fft(pmSignal, (int) samplingRate);
-        this.truncatedSpectrum = truncateSpectrum(amSpectrum, 20, 90);
+        this.truncatedSpectrum = truncateSpectrum(amSpectrum, 40, 60);
 
-        this.syntzSignal = SignalSynthesizer.synthesizeFromSpectrum(truncatedSpectrum, 10, 100);
+        this.syntzSignal = SignalSynthesizer.synthesizeFromSpectrum(truncatedSpectrum, 40, 60);
 
         double[] envelope = SignalFilter.hilbertEnvelope(syntzSignal);
         this.filterSignal = SignalFilter.applyThreshold(envelope, 0.5);
